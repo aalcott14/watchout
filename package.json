@@ -1,15 +1,23 @@
 {
-  "name": "watchout",
-  "version": "1.0.1",
-  "description": "Asteroids-style game implemented using D3.js",
-  "main": "client/index.html",
+  "name": "hratx26-watchout",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "dependencies": {
+    "d3-drag": "^1.0.4"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo 'Error: no test specified'",
-    "start": "open client/index.html"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "license": "Copyright 2015, Hack Reactor. All rights reserved.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aalcott14/hratx26-watchout.git"
+  },
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/reactorcore/sprint.watchout/issues"
+    "url": "https://github.com/aalcott14/hratx26-watchout/issues"
   },
-  "homepage": "https://github.com/reactorcore/sprint.watchout"
+  "homepage": "https://github.com/aalcott14/hratx26-watchout#readme"
 }
