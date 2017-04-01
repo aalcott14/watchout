@@ -8,13 +8,6 @@ var boardSelection = d3.select('.board');
 //                           circle.attr('cx', d3.event.x).attr('cy', d3.event.y)})
 //                         .on('end', function() {});
 
-var drag = d3.behavior.drag()
-  .on('drag', function() {
-    circle.attr('cx', d3.event.x)
-          .attr('cy', d3.event.y);
-  });
-
-
 
 function generateSVG() {
   svgSelection = boardSelection.append('svg')
@@ -23,19 +16,21 @@ function generateSVG() {
 }
 
 function generatePlayer() {
-  var drawPlayer = svgSelection.selectAll('.player')
-                             .data([ {x: 350, y: 350, r: 10} ])
-                             .append('circle')
+  var drag = d3.behavior.drag()
+    .on('drag', function() {
+    player.attr('cx', d3.event.x);
+    player.attr('cy', d3.event.y);
+  });
+
+  var player = svgSelection.append('circle')
                              .attr('class', 'player')
+                             .datum( {x: 350, y: 350} )
                              .attr('cx', (d)=> d.x)
                              .attr('cy', (d)=> d.y)
-                             .attr('r', (d)=> d.r)
+                             .attr('r', 10)
                              .style('fill', 'yellow')
-                             //.data([ {x: x, y: y} ])
-                             //.attr('transform', 'translate(' + x + ',' + y + ')')
                              .call(drag);
 }
-
 function generateEnemies(amount) {
   for (let i = 0; i < amount; i++) {
     generateEnemy();
@@ -63,7 +58,7 @@ function generateEnemy() {
 
 
 
-var enemyCount = prompt('How many enemies do you want to face?');
+//var enemyCount = prompt('How many enemies do you want to face?');
 generateSVG();
 generatePlayer();
-generateEnemies(enemyCount);
+generateEnemies(5);
