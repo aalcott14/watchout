@@ -134,23 +134,10 @@ function move(asteroid){
     })
 }
 
-function checkCollisions(){
-  asteroids.each(function(){
-    //console.log(d3.select(this).datum().x)
-    var cx = d3.select(this).datum().x + 10;
-    var cy = d3.select(this).datum().y + 10;
-    var mouseX = player.attr('cx');
-    var mouseY = player.attr('cy');
-    var x = cx - mouseX;
-    var y = cy - mouseY;
-    if (Math.sqrt(x*x + y*y) < 40) {
-      console.log('WHAMMY');
-    }
-    // if (Math.sqrt(x*x + y*y) < 20) {
-
-    // }
-  })
-
+function checkCollision(asteroid){
+  console.log(Math.floor(asteroid.datum().x))
+  if(Math.floor(asteroid.datum().x) === Math.floor(player.x) || Math.floor(asteroid.datum().y) === Math.floor(player.y))
+    console.log('NOOOOO')
 }
 
 for(let i=0; i<5; i++) 
@@ -160,11 +147,13 @@ for(let i=0; i<5; i++)
 let asteroids = d3.selectAll('.asteroid');
 asteroids.each( function() {
       move(d3.select(this));
-  })
+      checkCollision(d3.select(this));
+    })
 
-d3.timer(function(){
-  checkCollisions();
-});
+
+
+
+
 
 
 
